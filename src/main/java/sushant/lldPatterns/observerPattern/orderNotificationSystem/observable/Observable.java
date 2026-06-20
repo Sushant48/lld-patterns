@@ -4,8 +4,8 @@ import sushant.lldPatterns.observerPattern.orderNotificationSystem.model.Order;
 import sushant.lldPatterns.observerPattern.orderNotificationSystem.observer.Observer;
 
 public interface Observable {
-    void addObserver(Observer order);
-    void removerObserver(Observer order);
+    void addObserver(Observer observer);
+    void removeObserver(Observer observer);
 
-    void notifyObserver(Order order);
+    void notifyObserver(Order observer);
 }

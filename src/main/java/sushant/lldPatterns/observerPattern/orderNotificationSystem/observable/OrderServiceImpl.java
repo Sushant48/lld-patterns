@@ -16,7 +16,7 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public void removerObserver(Observer order) {
+    public void removeObserver(Observer order) {
         observers.remove(order);
     }
 
