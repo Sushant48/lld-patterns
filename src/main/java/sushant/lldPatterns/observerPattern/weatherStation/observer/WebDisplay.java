@@ -1,6 +1,6 @@
-package org.example.observerPattern.weatherStation.observer;
+package sushant.lldPatterns.observerPattern.weatherStation.observer;
 
-import org.example.observerPattern.weatherStation.observable.TemperatureObservable;
+import sushant.lldPatterns.observerPattern.weatherStation.observable.TemperatureObservable;
 
 public class WebDisplay implements Display{
 

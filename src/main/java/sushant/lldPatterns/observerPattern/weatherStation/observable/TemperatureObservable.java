@@ -1,6 +1,6 @@
-package org.example.observerPattern.weatherStation.observable;
+package sushant.lldPatterns.observerPattern.weatherStation.observable;
 
-import org.example.observerPattern.weatherStation.observer.Display;
+import sushant.lldPatterns.observerPattern.weatherStation.observer.Display;
 
 import java.util.ArrayList;
 import java.util.List;

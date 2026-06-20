@@ -1,10 +1,9 @@
-package org.example;
+package sushant.lldPatterns;
 
-import org.example.observerPattern.weatherStation.observable.Observable;
-import org.example.observerPattern.weatherStation.observable.TemperatureObservable;
-import org.example.observerPattern.weatherStation.observer.Display;
-import org.example.observerPattern.weatherStation.observer.MobileDisplay;
-import org.example.observerPattern.weatherStation.observer.WebDisplay;
+import sushant.lldPatterns.observerPattern.weatherStation.observable.TemperatureObservable;
+import sushant.lldPatterns.observerPattern.weatherStation.observer.Display;
+import sushant.lldPatterns.observerPattern.weatherStation.observer.MobileDisplay;
+import sushant.lldPatterns.observerPattern.weatherStation.observer.WebDisplay;
 
 public class Main {
     public static void main(String[] args) {

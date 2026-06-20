@@ -1,6 +1,6 @@
-package org.example.observerPattern.weatherStation.observable;
+package sushant.lldPatterns.observerPattern.weatherStation.observable;
 
-import org.example.observerPattern.weatherStation.observer.Display;
+import sushant.lldPatterns.observerPattern.weatherStation.observer.Display;
 
 public interface Observable {
     void add(Display display);
