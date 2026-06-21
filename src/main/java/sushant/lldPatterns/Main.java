@@ -12,6 +12,9 @@ import sushant.lldPatterns.observerPattern.weatherStation.observable.Temperature
 import sushant.lldPatterns.observerPattern.weatherStation.observer.Display;
 import sushant.lldPatterns.observerPattern.weatherStation.observer.MobileDisplay;
 import sushant.lldPatterns.observerPattern.weatherStation.observer.WebDisplay;
+import sushant.lldPatterns.strategyPattern.discountEngine.service.CheckoutService;
+import sushant.lldPatterns.strategyPattern.discountEngine.service.CouponDiscount;
+import sushant.lldPatterns.strategyPattern.discountEngine.service.FestivalDiscount;
 
 import java.math.BigDecimal;
 
@@ -19,8 +22,20 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
 
+        System.out.println("----------------Observer---------------");
         weatherStation();
         orderNotificationSystem();
+
+        System.out.println("-------------Strategy------------------");
+        discountEngine();
+    }
+
+    private static void discountEngine() {
+        CheckoutService festivalDiscount = new FestivalDiscount();
+        CheckoutService couponDiscount = new CouponDiscount();
+
+        festivalDiscount.applyDiscount();
+        couponDiscount.applyDiscount();
     }
 
     private static void weatherStation() {
