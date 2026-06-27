@@ -1,5 +1,9 @@
 package sushant.lldPatterns;
 
+import sushant.lldPatterns.decoratorPattern.notificationPipeline.baseNotification.BaseNotification;
+import sushant.lldPatterns.decoratorPattern.notificationPipeline.decorator.EncryptDecorator;
+import sushant.lldPatterns.decoratorPattern.notificationPipeline.decorator.LoggingDecorator;
+import sushant.lldPatterns.decoratorPattern.notificationPipeline.decorator.RetryDecorator;
 import sushant.lldPatterns.observerPattern.orderNotificationSystem.model.Order;
 import sushant.lldPatterns.observerPattern.orderNotificationSystem.observable.Observable;
 import sushant.lldPatterns.observerPattern.orderNotificationSystem.observable.OrderService;
@@ -28,6 +32,21 @@ public class Main {
 
         System.out.println("-------------Strategy------------------");
         discountEngine();
+
+        System.out.println("-------------Decorator------------------");
+        notificationPipeline();
+    }
+
+    private static void notificationPipeline() {
+        BaseNotification baseNotification = new LoggingDecorator(
+                new EncryptDecorator(
+                        new RetryDecorator(
+                                new BaseNotification()
+                        )
+                )
+        );
+
+        baseNotification.sendNotification();
     }
 
     private static void discountEngine() {
