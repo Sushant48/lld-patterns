@@ -1,6 +1,7 @@
 package sushant.lldPatterns;
 
 import sushant.lldPatterns.decoratorPattern.notificationPipeline.baseNotification.BaseNotification;
+import sushant.lldPatterns.decoratorPattern.notificationPipeline.baseNotification.NotificationService;
 import sushant.lldPatterns.decoratorPattern.notificationPipeline.decorator.EncryptDecorator;
 import sushant.lldPatterns.decoratorPattern.notificationPipeline.decorator.LoggingDecorator;
 import sushant.lldPatterns.decoratorPattern.notificationPipeline.decorator.RetryDecorator;
@@ -38,7 +39,7 @@ public class Main {
     }
 
     private static void notificationPipeline() {
-        BaseNotification baseNotification = new LoggingDecorator(
+        NotificationService baseNotification = new LoggingDecorator(
                 new EncryptDecorator(
                         new RetryDecorator(
                                 new BaseNotification()
@@ -46,7 +47,7 @@ public class Main {
                 )
         );
 
-        baseNotification.sendNotification();
+        System.out.println(baseNotification.sendNotification());
     }
 
     private static void discountEngine() {

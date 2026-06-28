@@ -1,20 +1,18 @@
 package sushant.lldPatterns.decoratorPattern.notificationPipeline.decorator;
 
-import sushant.lldPatterns.decoratorPattern.notificationPipeline.baseNotification.BaseNotification;
+import sushant.lldPatterns.decoratorPattern.notificationPipeline.baseNotification.NotificationService;
 
 public class LoggingDecorator extends NotificationDecorator {
 
-    private BaseNotification baseNotification;
-
-    public LoggingDecorator(BaseNotification baseNotification){
-        this.baseNotification = baseNotification;
+    public LoggingDecorator(NotificationService notificationService){
+        super(notificationService);
     }
 
     @Override
     public String sendNotification() {
         System.out.println("Request started");
-        baseNotification.sendNotification();
+        String result = notificationService.sendNotification();
         System.out.println("Request completed");
-        return "Notification logged successfully";
+        return result;
     }
 }

@@ -1,19 +1,20 @@
 package sushant.lldPatterns.decoratorPattern.notificationPipeline.decorator;
 
 import sushant.lldPatterns.decoratorPattern.notificationPipeline.baseNotification.BaseNotification;
+import sushant.lldPatterns.decoratorPattern.notificationPipeline.baseNotification.NotificationService;
 
 public class RetryDecorator extends NotificationDecorator {
 
-    private BaseNotification baseNotification;
     private int attempt;
 
-    public RetryDecorator(BaseNotification baseNotification){
-        this.baseNotification = baseNotification;
+    public RetryDecorator(NotificationService notificationService){
+        super(notificationService);
     }
 
     @Override
     public String sendNotification() {
-        baseNotification.sendNotification();
-        return String.format("Notification sent successfully | retry attempt: %s", attempt);
+        String result = notificationService.sendNotification();
+        attempt++;
+        return String.format("Notification sent successfully | retry attempt: %s | result: %s", attempt,result);
     }
 }
