@@ -16,8 +16,12 @@ public class ParserFactory {
                 return new CsvParser();
             case XML:
                 return new XmlParser();
-            default:
+            case JSON:
                 return new JsonParser();
+            default:
+                throw new IllegalArgumentException(
+                        "Unsupported parser format: " + parserType
+                );
         }
     }
 }

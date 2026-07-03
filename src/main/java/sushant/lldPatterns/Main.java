@@ -45,7 +45,9 @@ public class Main {
 
     private static void documentParser() {
         Parser parser = ParserFactory.getParser(ParserType.XML);
-        parser.parse();
+        String fileContent = "file";
+        String parsedFile = parser.parse(fileContent);
+        System.out.println(parsedFile);
     }
 
     private static void notificationPipeline() {
