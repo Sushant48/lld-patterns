@@ -5,8 +5,10 @@ import sushant.lldPatterns.decoratorPattern.notificationPipeline.baseNotificatio
 import sushant.lldPatterns.decoratorPattern.notificationPipeline.decorator.EncryptDecorator;
 import sushant.lldPatterns.decoratorPattern.notificationPipeline.decorator.LoggingDecorator;
 import sushant.lldPatterns.decoratorPattern.notificationPipeline.decorator.RetryDecorator;
+import sushant.lldPatterns.factoryPattern.documentParser.enums.ParserType;
+import sushant.lldPatterns.factoryPattern.documentParser.factory.ParserFactory;
+import sushant.lldPatterns.factoryPattern.documentParser.parser.Parser;
 import sushant.lldPatterns.observerPattern.orderNotificationSystem.model.Order;
-import sushant.lldPatterns.observerPattern.orderNotificationSystem.observable.Observable;
 import sushant.lldPatterns.observerPattern.orderNotificationSystem.observable.OrderService;
 import sushant.lldPatterns.observerPattern.orderNotificationSystem.observable.OrderServiceImpl;
 import sushant.lldPatterns.observerPattern.orderNotificationSystem.observer.AnalyticsObserver;
@@ -36,6 +38,14 @@ public class Main {
 
         System.out.println("-------------Decorator------------------");
         notificationPipeline();
+
+        System.out.println("-------------Factory------------------");
+        documentParser();
+    }
+
+    private static void documentParser() {
+        Parser parser = ParserFactory.getParser(ParserType.XML);
+        parser.parse();
     }
 
     private static void notificationPipeline() {
